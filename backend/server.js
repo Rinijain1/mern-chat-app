@@ -23,10 +23,10 @@ app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/users", userRoutes);
 
-// Serve the Frontend
-app.use(express.static(path.join(__dirname, "dist"))); // Serve static files from the dist folder
+// Serve Frontend Files
+app.use(express.static(path.join(__dirname, "frontend", "dist"))); // Serve static files
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "dist", "index.html")); // Serve index.html for React routes
+    res.sendFile(path.join(__dirname, "frontend", "dist", "index.html")); // Handle React routes
 });
 
 // Start Server
